@@ -8,15 +8,15 @@ fields = ["orgao","valor_empenhado","valor_liquidado","valor_pago"]
 df = read_csv(".\DataSets\mapa_investimento_mg_brasil_2019.csv",
               header=0,
               names=fields,
-              delimiter=';')
+              delimiter=';').query('Municipio' == 'BELO HORIZONTE')
 
 
 # 3. musicas = ('Lib Provisória', 'Sentadão', 'Combatchy', 'Surtada', 'Cheirosa')
 # 4. indice = np.arange(len(musicas))
 # 5. acessos = [1068254,866216,849895,763652,758198]
 
-plt.bar(indice, acessos)
-plt.xticks(indice, musicas)
+# plt.bar(indice, acessos)
+# plt.xticks(indice, musicas)
 plt.ylabel('Acessos')
 plt.title('Mapa de investimento do governo de minas gerais - Brasil - 2019')
 
