@@ -1,4 +1,5 @@
 # https://data.world/kgarrett/covid-19-open-research-dataset - link para dataset
+#pesquisas escolares
 from pandas import read_csv, Timestamp
 import numpy as np
 from matplotlib import pyplot as plt
@@ -17,12 +18,12 @@ x = np.arange(len(df))
 
 total_cases = df['total_cases'].values
 total_deaths = df['total_deaths'].values
-weekly_deaths = df['weekly_deaths'].values
+# weekly_deaths = df['weekly_deaths'].values
 width = 0.2
   
 plt.bar(x-width, total_cases, width, color='cyan')
 plt.bar(x, total_deaths, width, color='orange')
-plt.bar(x+width, weekly_deaths, width, color='green')
+# plt.bar(x+width, weekly_deaths, width, color='green')
 
 monthStickList = []
 
@@ -32,7 +33,8 @@ for date in df.axes[0].values:
 plt.xticks(x, monthStickList)
 plt.xlabel("Meses")
 plt.ylabel("Médias")
-plt.legend(["Total de casos", "Total de mortes", "Mortes semanais"])
+plt.title("Mortes por COVID-19 no Brasil (2020) - Coleção de artigos academicos diversos - 27 no total")
+plt.legend(["Total de casos", "Total de mortes"])
 plt.ticklabel_format(style='sci', axis='y', useMathText=True)
 
 plt.yticks(np.arange(plt.ylim()[0], plt.ylim()[1], 10000000))
